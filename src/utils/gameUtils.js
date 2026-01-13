@@ -1,14 +1,22 @@
-export const generateDeck = (size) => {
+export const themes = {
+    animals: ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯',
+        '🦁', 'dV', '🐮', '🐷', '🐸', '🐵', '🐔', '🐧', '🐦', '🐤',
+        '🦆', '🦅', '🦉', '🦇', '🐺', '🐗', '🐴', '🦄', '🐝', '🐛'],
+    fruits: ['🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈', '🍒',
+        '🍑', '🥭', '🍍', '🥥', '🥝', '🍅', '🍆', '🥑', '🥦', '🥬',
+        '🥒', '🌽', '🥕', '🥔', '🍠', '🥐', '🥯', '🍞', '🥖', '🥨'],
+    space: ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌙', '🌚',
+        '🌛', '🌜', '🌝', '🌞', '🌟', '⭐️', '🌠', '🌌', '🪐', '💫',
+        '☄️', '🚀', '🛸', '🛰', '👽', '👾', '🤖', '🔭', '🌍', '🌎']
+};
+
+export const generateDeck = (size, theme = 'animals') => {
     const totalCards = size * size;
     const pairCount = totalCards / 2;
 
-    // Use simple emojis or numbers for pairs. 
-    // Let's use a predefined list of emojis to make it fun.
-    const emojis = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯',
-        '🦁', 'dV', '🐮', '🐷', '🐸', '🐵', '🐔', '🐧', '🐦', '🐤',
-        '🦆', '🦅', '🦉', '🦇', '🐺', '🐗', '🐴', '🦄', '🐝', '🐛'];
+    const selectedTheme = themes[theme] || themes.animals;
+    const selectedEmojis = selectedTheme.slice(0, pairCount);
 
-    const selectedEmojis = emojis.slice(0, pairCount);
     const deck = [];
 
     selectedEmojis.forEach((emoji, index) => {

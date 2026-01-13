@@ -5,7 +5,9 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
+  background-attachment: fixed;
+  /* fix gradient during scroll */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,11 +19,19 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  justify-content: center;
+  /* Ensure horizontal center */
   min-width: 320px;
   min-height: 100vh;
+}
+
+#root {
+  width: 100%;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+  margin-bottom: 20px;
 }
